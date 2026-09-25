@@ -1,0 +1,1630 @@
+<!doctype html>
+<html lang="ja" class="single-page">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Universal Multi I/O ユーザーズマニュアル</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body id="top">
+<a class="skip" href="#main">本文へ</a>
+<header><a href="#top">Universal Multi I/O</a><span>ユーザーズマニュアル</span></header>
+<div class="shell">
+<nav aria-label="章一覧"><details open><summary>目次</summary><ol>
+<li><a href="#chapter-1">はじめに</a></li><li><a href="#chapter-2">接続と電源</a></li><li><a href="#chapter-3">基本操作</a></li><li><a href="#chapter-4">本体メニュー</a></li><li><a href="#chapter-5">Web 設定</a></li><li><a href="#chapter-6">設定項目</a></li><li><a href="#chapter-7">コントローラ</a></li><li><a href="#chapter-8">ファームウェア更新</a></li><li><a href="#chapter-9">困ったときは</a></li>
+</ol></details></nav>
+<main id="main">
+<h1>ユーザーズマニュアル</h1>
+
+
+
+
+
+
+
+<section class="manual-chapter" aria-labelledby="chapter-1">
+<h2 id="chapter-1">はじめに</h2>
+<p>第1.0版　作成日：2026-09-21</p>
+
+<ul id="chapter-1-markdown-toc">
+  <li><a href="#chapter-1-主な機能" id="chapter-1-markdown-toc-主な機能">主な機能</a></li>
+  <li><a href="#chapter-1-必要なもの" id="chapter-1-markdown-toc-必要なもの">必要なもの</a></li>
+  <li><a href="#chapter-1-本書の構成" id="chapter-1-markdown-toc-本書の構成">本書の構成</a></li>
+</ul>
+
+<p>Universal Multi I/O 基板は、USB / PlayStation コントローラの入力をゲーム基板向けのデジタル16ch・アナログ4chへと変換するI/Oボードです。デジタル出力の一部をロータリーエンコーダ出力としても使用できます。</p>
+
+<p>本基板は、PCとのUSB接続、ゲーム基板の電気的仕様、接続用ハーネス製作の知識などがある方の利用を想定しています。</p>
+
+<h3 id="chapter-1-主な機能">主な機能</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>項目</th>
+      <th>内容</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>コントローラ入力</td>
+      <td>USB コントローラ、PlayStation 系コントローラ</td>
+    </tr>
+    <tr>
+      <td>デジタル出力</td>
+      <td>16ch、ボタン・方向・軸しきい値を割り当て可能</td>
+    </tr>
+    <tr>
+      <td>アナログ出力</td>
+      <td>4ch、入力軸またはボタンによる値の増減</td>
+    </tr>
+    <tr>
+      <td>ロータリーエンコーダ出力</td>
+      <td>最大3軸、デジタル出力のchペアを使用</td>
+    </tr>
+    <tr>
+      <td>設定</td>
+      <td>本体 OLED メニュー、USB-C 接続の Web 設定</td>
+    </tr>
+    <tr>
+      <td>プロファイル数</td>
+      <td>8個（PROFILE0〜PROFILE7）</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>USB デバイスモードでは、本基板を USB-C の接続先へ XInput または HID ゲームパッドとして接続できます。USB-A / PlayStation コントローラ接続端子（J7）に接続したコントローラの入力を中継し、プロファイルごとに専用の割り当てを設定できます。</p>
+
+<h3 id="chapter-1-必要なもの">必要なもの</h3>
+
+<p>接続するゲーム基板、その電気的条件に適合するハーネス、5V 電源（ゲーム基板と同じ供給源を想定）、コントローラを用意してください。Web 設定とファームウェア更新を行うには PC とデータ通信対応 USB-C ケーブルを使用します。</p>
+
+<h3 id="chapter-1-本書の構成">本書の構成</h3>
+
+<p>接続条件は「接続と電源」、起動時の操作は「基本操作」を参照してください。本体と Web 設定の操作方法はそれぞれの章に、設定値の説明・範囲・初期値は「設定項目」にまとめています。</p>
+
+<p class="back-to-top"><a href="#top">ページ先頭へ戻る</a></p>
+</section>
+
+
+
+
+
+
+<section class="manual-chapter" aria-labelledby="chapter-2">
+<h2 id="chapter-2">接続と電源</h2>
+<p><img src="assets/images/universal-multi-io-board.jpg" alt="基板のコネクタと操作ボタンの配置" /></p>
+
+<ul id="chapter-2-markdown-toc">
+  <li><a href="#chapter-2-各部と端子" id="chapter-2-markdown-toc-各部と端子">各部と端子</a></li>
+  <li><a href="#chapter-2-電源について" id="chapter-2-markdown-toc-電源について">電源について</a></li>
+  <li><a href="#chapter-2-デジタル出力端子の概要" id="chapter-2-markdown-toc-デジタル出力端子の概要">デジタル出力端子の概要</a></li>
+  <li><a href="#chapter-2-アナログ出力端子の概要" id="chapter-2-markdown-toc-アナログ出力端子の概要">アナログ出力端子の概要</a></li>
+</ul>
+
+<h3 id="chapter-2-各部と端子">各部と端子</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>端子・操作部</th>
+      <th>入出力</th>
+      <th>用途</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>USB-A</td>
+      <td>入力</td>
+      <td>USB コントローラ接続</td>
+    </tr>
+    <tr>
+      <td>USB-C</td>
+      <td>入力、出力</td>
+      <td>単体給電、USBデバイスモード、Web 設定、ファームウェア更新</td>
+    </tr>
+    <tr>
+      <td>J7</td>
+      <td>入力</td>
+      <td>PlayStation コントローラ接続端子</td>
+    </tr>
+    <tr>
+      <td>J2 / POWER</td>
+      <td>入力</td>
+      <td>システム電源端子（5V、GND）</td>
+    </tr>
+    <tr>
+      <td>J6 / DIGITAL OUT</td>
+      <td>出力</td>
+      <td>デジタル出力端子 16ch</td>
+    </tr>
+    <tr>
+      <td>J5 / ANALOG IN/OUT</td>
+      <td>入力（電源のみ）、出力</td>
+      <td>外部リファレンス電圧（5V、GND）、アナログ出力4ch</td>
+    </tr>
+    <tr>
+      <td>UP / DOWN / SELECT</td>
+      <td> </td>
+      <td>OLED メニュー操作</td>
+    </tr>
+    <tr>
+      <td>BOOT (SW1)</td>
+      <td> </td>
+      <td>ファームウェア更新用の起動</td>
+    </tr>
+    <tr>
+      <td>RESET (SW2)</td>
+      <td> </td>
+      <td>本機の再起動</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>USB デバイスモードでは、USB-A / PlayStation コントローラ端子（J7）に接続したコントローラの入力を、USB-C に接続した PC やゲーム機へゲームパッド入力として送信します。</p>
+
+<h3 id="chapter-2-電源について">電源について</h3>
+
+<p>システム電源 と USB-C の両方に給電した場合は、システム電源が優先されます。USB コントローラへも給電する SELF TESTモードでは、USB-C に5V・1A以上の電源を使用してください。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>給電・起動条件</th>
+      <th>動作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>システム電源あり・通常起動</td>
+      <td>コントローラを認識すると通常運転</td>
+    </tr>
+    <tr>
+      <td>USB-C のみ・ボタンを押さずに起動</td>
+      <td>保存した USB MODE に従う。OFF は SELF TESTモード、XINPUT / HID は USB デバイスモード</td>
+    </tr>
+    <tr>
+      <td>USB-C のみ・SELECT を押して起動</td>
+      <td>CONFIG（Web 設定）</td>
+    </tr>
+    <tr>
+      <td>システム電源あり・SELECT を押して起動</td>
+      <td>ERROR。CONFIG には移行しない</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>USB-C のみで通常起動した際の動作は、保存した USB モードに従います。OFF の場合は SELF TESTモード、XINPUT / HID の場合は USB デバイスモードでの起動となります。UP ボタンを押して起動した場合 USB デバイスモード（XInput）、DOWN ボタンを押して起動した場合は USB デバイスモード（HID）で一時的に起動させることが可能です。システム電源を接続した場合は、これらの指定によらず通常モードでの起動となります。</p>
+
+<p>USB デバイスモードでは デジタル出力端子（J6）/ アナログ出力端子（J5）でのアナログ・デジタル・ロータリーエンコーダ出力は行われません。USB-C 端子からの給電で使用してください。</p>
+
+<h3 id="chapter-2-デジタル出力端子の概要">デジタル出力端子の概要</h3>
+
+<p>デジタル出力端子（J6）のピン1〜16は ch0〜ch15 に対応します。デジタル出力端子（J6）には GND 端子はなく、リターンはシステム電源端子（J2）/アナログ端子（J5）を使用します。システム電源端子（J2）のピン1・2が +5V、ピン3・4が GND です。</p>
+
+<p>通常のデジタル出力はアクティブ Low のシンク出力です。接続先のプルアップは +5V 系を対象とし、+12V 系へは接続できません。ご注意ください。</p>
+
+<p>ch8/9・ch10/11・ch12/13・ch14/15 には切替式の1kΩプルアップがあり、ロータリーエンコーダ出力を有効にしたchペアに対して機能します。ロータリーエンコーダに割り当てたchペアは、通常のデジタル出力としては利用できません。</p>
+
+<h3 id="chapter-2-アナログ出力端子の概要">アナログ出力端子の概要</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>J5 ピン</th>
+      <th>信号</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>外部リファレンス電圧（VREF EXT）</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>GND</td>
+    </tr>
+    <tr>
+      <td>3〜6</td>
+      <td>アナログ ch0〜ch3</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>本基板のアナログ出力は、0〜選択されたリファレンス電圧（VREF）までの256段階となります。外部リファレンス電圧（VREF EXT）は+5V系を対象とし、接続先は5kΩ/10kΩ可変抵抗のワイパー入力相当を想定しています。アナログ出力のリファレンス電圧の選択は「設定項目」の VREF を参照してください。</p>
+
+<p>USB-C 単体給電で動作している場合は、外部から外部リファレンス電圧（VREF EXT）を印加しても、アナログ出力は有効になりません。</p>
+
+<p class="back-to-top"><a href="#top">ページ先頭へ戻る</a></p>
+</section>
+
+
+
+
+
+
+<section class="manual-chapter" aria-labelledby="chapter-3">
+<h2 id="chapter-3">基本操作</h2>
+<ul id="chapter-3-markdown-toc">
+  <li><a href="#chapter-3-起動" id="chapter-3-markdown-toc-起動">起動</a></li>
+  <li><a href="#chapter-3-起動時のボタン" id="chapter-3-markdown-toc-起動時のボタン">起動時のボタン</a></li>
+  <li><a href="#chapter-3-usb-デバイスモード" id="chapter-3-markdown-toc-usb-デバイスモード">USB デバイスモード</a>    <ul>
+      <li><a href="#chapter-3-モーター振動機能" id="chapter-3-markdown-toc-モーター振動機能">モーター振動機能</a></li>
+    </ul>
+  </li>
+  <li><a href="#chapter-3-状態表示" id="chapter-3-markdown-toc-状態表示">状態表示</a></li>
+  <li><a href="#chapter-3-初期割り当て" id="chapter-3-markdown-toc-初期割り当て">初期割り当て</a></li>
+</ul>
+
+<h3 id="chapter-3-起動">起動</h3>
+
+<p>基本的に、システム電源端子（J2）へ電源を接続して起動します（一部 USB-C コネクタに電源またはPCを接続してご利用可能な機能があります）。コントローラの接続待ち時は <code class="language-plaintext highlighter-rouge">IDLE</code>、有効なコントローラが接続され、認識が完了すると <code class="language-plaintext highlighter-rouge">RUN USB</code> または <code class="language-plaintext highlighter-rouge">RUN PS</code> という表記になります。USB コントローラと PS コントローラがともに接続され、いずれも有効な場合は USB コントローラが優先されます。同時に扱える入力機器は1台です。</p>
+
+<p>SELECT ボタンでメニューを開き、MONITOR 画面で入力状態を確認できます。設定を終えたら EXIT で通常画面へ戻してください。</p>
+
+<h3 id="chapter-3-起動時のボタン">起動時のボタン</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>操作</th>
+      <th>動作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ボタンなし</td>
+      <td>保存された USB ホストモードで起動</td>
+    </tr>
+    <tr>
+      <td>SELECT を押しながら起動</td>
+      <td>Web による設定モード。USB-C 電源でのみ利用可能</td>
+    </tr>
+    <tr>
+      <td>UP を押しながら起動</td>
+      <td>USB デバイスモード（XInput）</td>
+    </tr>
+    <tr>
+      <td>DOWN を押しながら起動</td>
+      <td>USB デバイスモード（HID）</td>
+    </tr>
+    <tr>
+      <td>SW1 を押しながら電源投入、または SW1 を押しながら SW2 でリセット</td>
+      <td>ROM USB ブート（UF2 更新）</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>USB ホスト処理は、PIO モード/ NATIVE モードの2種類があり、設定画面で変更が可能です。PIO モードが初期値です。NATIVE モードは互換用のモードで、PIO モードで認識されないコントローラがあった場合にご利用ください。ただし、USB-C との利用が排他となるため、Web による設定中は USB-A に接続されたコントローラを使用できない他、USB デバイスモードで USB コントローラを使用することができません。</p>
+
+<h3 id="chapter-3-usb-デバイスモード">USB デバイスモード</h3>
+
+<p>USB-C 単体給電で起動し、入力に使うコントローラを USB-A または PlayStation コントローラ端子（J7）に接続してください。通常どの方式を採用するかは、本体設定メニュー SYSTEM → USB MODE、または Web 設定画面の「USB-C単体給電時」のモードにて選択してください。設定変更は次回起動に反映されます。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>USB MODE</th>
+      <th>動作</th>
+      <th>接続先の確認記録</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>OFF（初期値）</td>
+      <td>SELF TESTモード</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>XINPUT</td>
+      <td>Xbox 360 有線互換パッドとして中継</td>
+      <td>Windows・macOS・Linux</td>
+    </tr>
+    <tr>
+      <td>HID</td>
+      <td>HID ゲームパッドとして中継</td>
+      <td>PC・Switch・Switch 2</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>NATIVE ホストモードでは USB-A の入力を扱えないため、PlayStation コントローラ端子（J7）を使用してください。USB デバイスモードの割り当ては「設定項目」を参照してください。</p>
+
+<h4 id="chapter-3-モーター振動機能">モーター振動機能</h4>
+
+<p>XInput モードでは、接続先からの振動指示を入力に使用中のコントローラへのみ送信します。USB-A の Xbox 系・DualShock 3/4、PlayStation コントローラ端子（J7）の DualShock 2 での動作を確認しています。HID モードはモーターの振動機能は動作しません。また、ジョグコンでは振動機能は動作せず、FFB のみの動作となります。</p>
+
+<p>PlayStation コントローラ端子（J7）に接続したコントローラのモーター機能は、USB-C 接続先が CC 信号で1.5A以上の供給能力を通知している場合にのみ有効になります。</p>
+
+<h3 id="chapter-3-状態表示">状態表示</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>表示</th>
+      <th>意味</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IDLE</td>
+      <td>コントローラ接続待ち</td>
+    </tr>
+    <tr>
+      <td>RUN USB / RUN PS</td>
+      <td>表示されたコントローラを使用中</td>
+    </tr>
+    <tr>
+      <td>SELF TESTモード</td>
+      <td>単体によるコントローラ入力の確認中。外部出力コネクタへは信号出力されません</td>
+    </tr>
+    <tr>
+      <td>CONFIG</td>
+      <td>Web による設定中。外部出力コネクタへは信号出力されません</td>
+    </tr>
+    <tr>
+      <td>ERROR</td>
+      <td>エラー停止中。原因は CAUSE または赤 LED で確認してください</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>トップ画面には、システム電圧（J2 コネクタに接続されている電源電圧）ならびにアナログ出力信号用のリファレンス電圧（VREF）の状態も表示されます。OLED の <code class="language-plaintext highlighter-rouge">SYS 5V</code> は Web 設定画面での <code class="language-plaintext highlighter-rouge">SYSTEM 5V</code> と同じ電源を指します。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>動作</th>
+      <th>RUN 緑</th>
+      <th>USB 黄</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>RUN USB</td>
+      <td>点灯</td>
+      <td>点灯</td>
+    </tr>
+    <tr>
+      <td>RUN PS</td>
+      <td>点灯</td>
+      <td>消灯</td>
+    </tr>
+    <tr>
+      <td>IDLE</td>
+      <td>速い点滅</td>
+      <td>消灯</td>
+    </tr>
+    <tr>
+      <td>SELF TESTモード</td>
+      <td>遅い点滅</td>
+      <td>USB 認識時は遅い点滅</td>
+    </tr>
+    <tr>
+      <td>CONFIG</td>
+      <td>遅い点滅</td>
+      <td>消灯</td>
+    </tr>
+    <tr>
+      <td>ERROR</td>
+      <td>消灯</td>
+      <td>消灯</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>USB デバイスモードでは、STATE に <code class="language-plaintext highlighter-rouge">XINPUT</code> または <code class="language-plaintext highlighter-rouge">HID</code> と表示します。接続先との接続が確立するまでは後ろの <code class="language-plaintext highlighter-rouge">*</code> が点滅し、確立すると消えます。現行実装では、このモード中の RUN 緑・USB 黄は消灯します。</p>
+
+<p>トップ画面の <code class="language-plaintext highlighter-rouge">IN</code> はボタンとハット方向、<code class="language-plaintext highlighter-rouge">LXY</code> / <code class="language-plaintext highlighter-rouge">RXY</code> はスティック値です。入力が選ばれていない場合や、そのスティックを持たない機器では <code class="language-plaintext highlighter-rouge">----</code> と表示します。相対入力のトラックボールなどでも、スティック欄の <code class="language-plaintext highlighter-rouge">----</code> は異常を意味しません。</p>
+
+<h3 id="chapter-3-初期割り当て">初期割り当て</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>出力</th>
+      <th>初期割り当て</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>デジタル ch0・1・2・3</td>
+      <td>ハット 上・下・左・右</td>
+    </tr>
+    <tr>
+      <td>デジタル ch4〜7</td>
+      <td>ボタン0〜3</td>
+    </tr>
+    <tr>
+      <td>デジタル ch8</td>
+      <td>ボタン8（SELECT/BACK系）</td>
+    </tr>
+    <tr>
+      <td>デジタル ch9</td>
+      <td>ボタン9（START系）</td>
+    </tr>
+    <tr>
+      <td>デジタル ch10〜15</td>
+      <td>未割り当て・無効</td>
+    </tr>
+    <tr>
+      <td>アナログ ch0〜3</td>
+      <td>LX・LY・RX・RY、すべて有効</td>
+    </tr>
+    <tr>
+      <td>ロータリーエンコーダ ROT0〜2</td>
+      <td>すべて無効</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>ch番号・ボタン番号・プロファイル番号は0始まりです。</p>
+
+<p class="back-to-top"><a href="#top">ページ先頭へ戻る</a></p>
+</section>
+
+
+
+
+
+
+<section class="manual-chapter" aria-labelledby="chapter-4">
+<h2 id="chapter-4">本体メニュー</h2>
+<ul id="chapter-4-markdown-toc">
+  <li><a href="#chapter-4-共通操作" id="chapter-4-markdown-toc-共通操作">共通操作</a></li>
+  <li><a href="#chapter-4-コントローラ操作" id="chapter-4-markdown-toc-コントローラ操作">コントローラ操作</a></li>
+  <li><a href="#chapter-4-デジタル出力の割り当て" id="chapter-4-markdown-toc-デジタル出力の割り当て">デジタル出力の割り当て</a></li>
+  <li><a href="#chapter-4-保存と初期化" id="chapter-4-markdown-toc-保存と初期化">保存と初期化</a></li>
+  <li><a href="#chapter-4-monitor-画面と-information-画面" id="chapter-4-markdown-toc-monitor-画面と-information-画面">MONITOR 画面と INFORMATION 画面</a></li>
+</ul>
+
+<h3 id="chapter-4-共通操作">共通操作</h3>
+
+<p>SELECT でメニューを開きます。UP/DOWN で項目や値を選び、SELECT で決定します。前ページへ戻るときは BACK、終了はトップメニューで EXIT を選んでください。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>メニュー</th>
+      <th>内容</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PROFILE</td>
+      <td>使用するプロファイル0〜7を選択</td>
+    </tr>
+    <tr>
+      <td>SETTINGS → DIGITAL</td>
+      <td>デジタルch0〜15の割り当て・トグル、一括割り当て</td>
+    </tr>
+    <tr>
+      <td>SETTINGS → ANALOG</td>
+      <td>アナログch0(A0)〜ch3(A3)の設定</td>
+    </tr>
+    <tr>
+      <td>SETTINGS → ROTARY</td>
+      <td>ROT0〜ROT2の設定</td>
+    </tr>
+    <tr>
+      <td>SYSTEM → VREF</td>
+      <td>リファレンス電圧の選択</td>
+    </tr>
+    <tr>
+      <td>SYSTEM → JOG FFB</td>
+      <td>ジョグコン設定</td>
+    </tr>
+    <tr>
+      <td>SYSTEM → NETWORK</td>
+      <td>現在のネットワーク設定表示・初期値へのリセット</td>
+    </tr>
+    <tr>
+      <td>SYSTEM → USB HOST</td>
+      <td>PIO/NATIVE の選択。次回起動に反映</td>
+    </tr>
+    <tr>
+      <td>MONITOR</td>
+      <td>入出力の観測</td>
+    </tr>
+    <tr>
+      <td>INFORMATION</td>
+      <td>機器・ファームウェア情報</td>
+    </tr>
+    <tr>
+      <td>FACTORY RESET</td>
+      <td>全設定を初期化して保存</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>設定操作中はすべての外部出力は開放されます。MONITOR ページでは通常運転中の出力情報を確認できます。</p>
+
+<p>SYSTEM → USB MODE で、USB-C 単体給電時の動作を OFF / XINPUT / HID から選べます。初期値は OFF、保存後の次回起動で反映されます。USB デバイスモードのボタン・軸割り当ては Web 設定で編集します。</p>
+
+<p>UP / DOWN ボタンは押し続けると連続操作になります。範囲の広い数値は押し続けた時間に応じて増減幅が大きくなり、離すと細かい操作に戻ります。SELECT ボタンは連続操作の対象外です。</p>
+
+<h3 id="chapter-4-コントローラ操作">コントローラ操作</h3>
+
+<p>メニューを開く操作は、本体の SELECT ボタンで行います。開いた後はハット上下、LX、LY（左＝上、右＝下）で移動できます。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>入力系統</th>
+      <th>決定の初期値</th>
+      <th>戻るの初期値</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>USB（標準）</td>
+      <td>ボタン0</td>
+      <td>ボタン1</td>
+    </tr>
+    <tr>
+      <td>PS 配列</td>
+      <td>ボタン1（×）</td>
+      <td>ボタン2（○）</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>操作ボタン番号は設定ファイルの <code class="language-plaintext highlighter-rouge">system.ui</code> で変更できます（0〜31、決定と戻るは別番号）。MONITOR と割り当ての入力待ち中はコントローラによるメニュー操作を受け付けません。</p>
+
+<h3 id="chapter-4-デジタル出力の割り当て">デジタル出力の割り当て</h3>
+
+<p>SETTINGS → DIGITAL → 対象chを選択して設定します。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>項目</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ASSIGN</td>
+      <td>キーの入力待ちに入り、操作されたボタン・方向・軸を割り当てます</td>
+    </tr>
+    <tr>
+      <td>SELECT</td>
+      <td>入力元と入力項目を一覧から選びます</td>
+    </tr>
+    <tr>
+      <td>NONE</td>
+      <td>割り当てを解除します</td>
+    </tr>
+    <tr>
+      <td>DEFAULT</td>
+      <td>対象chを初期割り当てに戻します</td>
+    </tr>
+    <tr>
+      <td>TOGGLE</td>
+      <td>トグルの無効/初期 Low/初期 High を設定します</td>
+    </tr>
+    <tr>
+      <td>ASSIGN ALL</td>
+      <td>すべてのchの割り当てを順に設定します。中断時は画面の選択肢にて続行・終了を選んでください</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>ASSIGN は静止位置からの変化を取得します。割り当てのための入力待ちに入る前にボタンなどから手を離してください。</p>
+
+<h3 id="chapter-4-保存と初期化">保存と初期化</h3>
+
+<p>SETTINGS/SYSTEM で変更し BACK を選ぶと保存（<code class="language-plaintext highlighter-rouge">SAVE?</code>）するか表示されます。YES で保存、NO で保存済み設定を読み直して変更を破棄します。保存後、OLED 画面右下に <code class="language-plaintext highlighter-rouge">SAVE</code> と一瞬表示されるか確認してください。保存または読み直しに失敗すると、<code class="language-plaintext highlighter-rouge">ERROR</code> と表示されます。</p>
+
+<p>PROFILE の選択と FACTORY RESET は実行後、ただちに保存されます。トップメニューへ戻る（EXIT）際には保存されません。FACTORY RESET は <code class="language-plaintext highlighter-rouge">INIT ALL?</code> で YES を選ぶと全設定を初期化します。初期化を実行すると、これまでに行ったすべての設定内容が失われますので、ご注意ください。</p>
+
+<p>保存を伴う操作後は、開いていたメニューを閉じてトップ画面へ戻ります。対象は PROFILE の変更確定、<code class="language-plaintext highlighter-rouge">SAVE?</code> の YES、FACTORY RESET の YES、NETWORK の RESET です。保存結果は最下段に2秒間表示します。<code class="language-plaintext highlighter-rouge">INITIALIZED</code> は全設定の初期化、<code class="language-plaintext highlighter-rouge">NET RESET</code> はネットワーク設定のリセットを示します。<code class="language-plaintext highlighter-rouge">SAVE?</code> の NO や、値を変えずに PROFILE を確定した場合はメニューに残ります。</p>
+
+<h3 id="chapter-4-monitor-画面と-information-画面">MONITOR 画面と INFORMATION 画面</h3>
+
+<p>MONITOR 画面は DIGITAL、ANALOG、ROTARY、JOGCON、AXES、USB の各情報を確認することができます。本体の UP/DOWN ボタンでページ送り、SELECT ボタンでメニューに戻ります。DIGITAL はボタン・出力、AXES は軸値、ROTARY は計算値と駆動状態、USB は認識機器の確認に使用します。</p>
+
+<p>SELF TESTモード中の計算値表示は各端子からの出力ではありません。</p>
+
+<p>INFORMATION 画面ではファームウェア情報を確認できます。</p>
+
+<p class="back-to-top"><a href="#top">ページ先頭へ戻る</a></p>
+</section>
+
+
+
+
+
+
+<section class="manual-chapter" aria-labelledby="chapter-5">
+<h2 id="chapter-5">Web 設定</h2>
+
+<h3 id="chapter-5-config-モード">CONFIG モード</h3>
+
+<p>システム電源端子を外し、SELECT を押しながら USB-C ケーブルにて PC へ接続すると CONFIG モードで起動します。</p>
+
+<p>OLED に表示された IP アドレスへ、ウェブブラウザを用いて HTTP にてアクセスしてください。初期アドレスは <code class="language-plaintext highlighter-rouge">http://192.168.7.1/</code> です。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>確認済み環境</th>
+      <th>記録</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>OS</td>
+      <td>Windows、macOS</td>
+    </tr>
+    <tr>
+      <td>ブラウザ</td>
+      <td>Microsoft Edge、Google Chrome、Safari など</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="chapter-5-画面と操作">画面と操作</h3>
+
+<p>ホーム画面にはシステム状態、コントローラ、プロファイルが表示されます。</p>
+
+<p>編集したい項目を選び、値などを変更後、適用してホームへ戻ります。最後にツールバーの保存を実行してください。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>操作</th>
+      <th>結果</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>適用</td>
+      <td>編集内容を画面上で確定します。本基板への保存は行いません</td>
+    </tr>
+    <tr>
+      <td>キャンセル</td>
+      <td>編集画面の変更を取り消します</td>
+    </tr>
+    <tr>
+      <td>保存</td>
+      <td>本基板へ書き込み、設定を保存します</td>
+    </tr>
+    <tr>
+      <td>読込</td>
+      <td>本基板の保存済み設定を読み込みます</td>
+    </tr>
+    <tr>
+      <td>状態表示</td>
+      <td>入力・電源などを表示します</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>未保存の変更がある場合は、保存ボタンとその旨の注意文が表示されます。値などを変更し、適用しただけでは電源を切った後に設定は残りませんので、ご注意ください。</p>
+
+<h3 id="chapter-5-設定ファイル">設定ファイル</h3>
+
+<p>ファイル書き出しで本基板内の設定情報をファイルに保存できます。取り込みは、以前に保存された設定ファイルを読み込み、内容を確認してから本基板へ設定内容を保存します。読込やファイル取り込みの際、未保存の変更がある場合は、破棄するかどうかの確認表示が行われます。</p>
+
+<p>書き出しファイル名は <code class="language-plaintext highlighter-rouge">universal-multi-io-settings-YYYYMMDDhhmmss.json</code> です（YYYYMMDDは年月日、hhmmssは時間です）。書き出したファイルを編集すると読み込みできなくなる可能性があります。基本的には触らないでください。再読み込み時に、ファイル内容にエラーがあった場合は取り込むことができません。ご了承ください。</p>
+
+<h3 id="chapter-5-工場出荷設定">工場出荷設定</h3>
+
+<p>工場出荷設定を読み込んだ後、保存を実行すると本基板へ設定を保存します。これまでに設定した内容はすべて失われます。くれぐれもご注意ください。</p>
+
+<h3 id="chapter-5-ネットワーク設定">ネットワーク設定</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>項目</th>
+      <th>範囲・条件</th>
+      <th>初期値</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IP</td>
+      <td>プライベート IPv4 またはリンクローカル。/30 の有効ホストアドレス</td>
+      <td>192.168.7.1</td>
+    </tr>
+    <tr>
+      <td>マスク</td>
+      <td>/30 固定</td>
+      <td>255.255.255.252</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>保存後に再起動することで、変更したアドレス設定が反映されます。IP アドレスを初期設定に戻す場合は、本体メニューの SYSTEM → NETWORK → RESET を実行してください。</p>
+
+<h3 id="chapter-5-usb-ホスト機能設定">USB ホスト機能設定</h3>
+
+<p>USB ホスト機能を PIO モードと NATIVE モードの2種類から選択できます。PIOモード が初期値です。NATIVE モードは互換用のモードで、PIO モードで認識されないコントローラがあった場合にご利用ください。設定変更後、次回の起動時から反映されます。なお、NATIVE モードでは CONFIG 中の USB コントローラ入力が使用できません。また、USB デバイスモードで USB コントローラを使用することができません。</p>
+
+<h3 id="chapter-5-usb-デバイスモードの設定">USB デバイスモードの設定</h3>
+
+<p>ホームの「USB-C単体給電時」で OFF / XInput / HID を選び、保存してください。次回の USB-C 単体給電での起動から反映されます。</p>
+
+<p>プロファイル編集の「USBデバイスモードの割当（XInput / HID）」では、送信するボタン・トリガー・スティックの入力元と軸反転を設定できます。変更後は適用してホームへ戻り、保存してください。これらの割り当ては XInput / HID で共用となります。</p>
+
+<h3 id="chapter-5-相対軸の状態表示">相対軸の状態表示</h3>
+
+<p>状態表示の軸一覧に <code class="language-plaintext highlighter-rouge">REL X（相対）</code>、<code class="language-plaintext highlighter-rouge">REL Y（相対）</code>、<code class="language-plaintext highlighter-rouge">REL W（ホイール）</code> を表示します。これらは位置ではなく、入力報告ごとの変化量です。</p>
+
+<h3 id="chapter-5-ロータリー出力の反転設定">ロータリー出力の反転設定</h3>
+
+<p>プロファイルのロータリー編集で「反転（INVERT）」を変更できます。対象は ANALOG / JOG / TRACKBALL / WHEEL です。DIGITAL では表示されません。変更後は適用してホームへ戻り、保存してください。</p>
+
+<p class="back-to-top"><a href="#top">ページ先頭へ戻る</a></p>
+</section>
+
+
+
+
+
+
+<section class="manual-chapter" aria-labelledby="chapter-6">
+<h2 id="chapter-6">設定項目</h2>
+<ul id="chapter-6-markdown-toc">
+  <li><a href="#chapter-6-プロファイル" id="chapter-6-markdown-toc-プロファイル">プロファイル</a></li>
+  <li><a href="#chapter-6-デジタル出力" id="chapter-6-markdown-toc-デジタル出力">デジタル出力</a></li>
+  <li><a href="#chapter-6-アナログ出力" id="chapter-6-markdown-toc-アナログ出力">アナログ出力</a></li>
+  <li><a href="#chapter-6-ボタンによるアナログ値の増減" id="chapter-6-markdown-toc-ボタンによるアナログ値の増減">ボタンによるアナログ値の増減</a></li>
+  <li><a href="#chapter-6-ロータリーエンコーダ出力" id="chapter-6-markdown-toc-ロータリーエンコーダ出力">ロータリーエンコーダ出力</a></li>
+  <li><a href="#chapter-6-ジョグコン" id="chapter-6-markdown-toc-ジョグコン">ジョグコン</a></li>
+  <li><a href="#chapter-6-vref" id="chapter-6-markdown-toc-vref">VREF</a></li>
+  <li><a href="#chapter-6-usb-デバイスモード" id="chapter-6-markdown-toc-usb-デバイスモード">USB デバイスモード</a></li>
+  <li><a href="#chapter-6-usb-デバイスモードの割り当て" id="chapter-6-markdown-toc-usb-デバイスモードの割り当て">USB デバイスモードの割り当て</a></li>
+</ul>
+
+<h3 id="chapter-6-プロファイル">プロファイル</h3>
+
+<p>PROFILE0〜PROFILE7 の8個を保持しています。本体トップメニューの PROFILE を選択し、SELECT ボタンで確定すると、プロファイルが変更・保存されます。Web 設定では使用したいプロファイルを選び、保存してください。</p>
+
+<p>プロファイル毎に、デジタル・アナログ・ロータリーエンコーダの各種設定を保存できます。リファレンス電圧設定（VREF）・ジョグコン設定・ネットワーク設定・USB設定、メニュー操作ボタンの設定は、すべてのプロファイル共通です。プロファイル名は UTF-8 で1〜31バイト以内で設定可能です（Web 設定画面のみ）。</p>
+
+<h3 id="chapter-6-デジタル出力">デジタル出力</h3>
+
+<p>初期割り当ては「基本操作」を参照してください。以下の軸しきい値の初期値は、Web 設定画面で軸入力を選ぶ際の設定値です。出荷時には軸しきい値の割り当てはありません。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>項目</th>
+      <th>説明</th>
+      <th>範囲・選択肢</th>
+      <th>初期値</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>有効</td>
+      <td>対象chの使用</td>
+      <td>OFF / ON</td>
+      <td>ch0〜9 ON、ch10〜15 OFF</td>
+    </tr>
+    <tr>
+      <td>入力元</td>
+      <td>出力の入力条件</td>
+      <td>なし/ボタン/ハット/軸しきい値</td>
+      <td>ch別の初期割り当て</td>
+    </tr>
+    <tr>
+      <td>ボタン</td>
+      <td>使用する入力番号</td>
+      <td>0〜31</td>
+      <td>ch4〜7＝0〜3、ch8＝8、ch9＝9</td>
+    </tr>
+    <tr>
+      <td>ハット</td>
+      <td>使用する方向</td>
+      <td>上/下/左/右</td>
+      <td>ch0〜3＝上/下/左/右</td>
+    </tr>
+    <tr>
+      <td>軸</td>
+      <td>しきい値判定する軸</td>
+      <td>0〜7</td>
+      <td>LX（0）</td>
+    </tr>
+    <tr>
+      <td>判定方向</td>
+      <td>ON側の方向</td>
+      <td>以上でON/以下でON</td>
+      <td>以上でON</td>
+    </tr>
+    <tr>
+      <td>ON</td>
+      <td>ONになるしきい値</td>
+      <td>−32768〜32767</td>
+      <td>Web補完値16000</td>
+    </tr>
+    <tr>
+      <td>OFF</td>
+      <td>OFFへ戻るしきい値</td>
+      <td>−32768〜32767</td>
+      <td>Web補完値8000</td>
+    </tr>
+    <tr>
+      <td>トグル</td>
+      <td>入力のたびに出力状態を切り替える</td>
+      <td>OFF/初期Low/初期High</td>
+      <td>OFF</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>しきい値は「以上でON」では ON &gt; OFF、「以下でON」では ON &lt; OFF である必要があります。ロータリーエンコーダ出力を有効にした場合、割り当てられたchは通常デジタル出力に割り当てることはできません。</p>
+
+<h3 id="chapter-6-アナログ出力">アナログ出力</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>項目</th>
+      <th>説明</th>
+      <th>範囲・選択肢</th>
+      <th>初期値</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>有効</td>
+      <td>対象chの使用</td>
+      <td>OFF / ON</td>
+      <td>全ch ON</td>
+    </tr>
+    <tr>
+      <td>SOURCE</td>
+      <td>駆動源</td>
+      <td>軸/ボタン</td>
+      <td>軸</td>
+    </tr>
+    <tr>
+      <td>AXIS</td>
+      <td>入力軸</td>
+      <td>0〜7</td>
+      <td>A0＝LX、A1＝LY、A2＝RX、A3＝RY</td>
+    </tr>
+    <tr>
+      <td>INVERT</td>
+      <td>出力反転</td>
+      <td>OFF / ON</td>
+      <td>OFF</td>
+    </tr>
+    <tr>
+      <td>RANGE</td>
+      <td>中心を維持した振れ幅</td>
+      <td>50〜100%、画面では5%刻み</td>
+      <td>100%</td>
+    </tr>
+    <tr>
+      <td>カーブ</td>
+      <td>変換特性</td>
+      <td>0（直線）のみ</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="chapter-6-ボタンによるアナログ値の増減">ボタンによるアナログ値の増減</h3>
+
+<p>SOURCE がボタンの場合の項目です。「ランプ」は値を徐々に変化させる動作を指します。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>項目</th>
+      <th>説明</th>
+      <th>範囲・選択肢</th>
+      <th>初期値</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>UP</td>
+      <td>値を増加させる入力</td>
+      <td>ボタン0〜31/ハット4方向/未設定</td>
+      <td>未設定</td>
+    </tr>
+    <tr>
+      <td>DOWN</td>
+      <td>値を減少させる入力。未設定なら1ボタン動作</td>
+      <td>ボタン0〜31/ハット4方向/未設定</td>
+      <td>未設定</td>
+    </tr>
+    <tr>
+      <td>SPEED</td>
+      <td>値の変化速度の段階</td>
+      <td>1〜5</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>RELEASE</td>
+      <td>入力を離したときの動作</td>
+      <td>CENTER（中心）/HOLD（保持）/ZERO（0）</td>
+      <td>CENTER</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>有効にするには UP の設定が必要です。INVERT・RANGE は軸入力と共通です。</p>
+
+<h3 id="chapter-6-ロータリーエンコーダ出力">ロータリーエンコーダ出力</h3>
+
+<p>ROT0〜ROT2 の3軸を設定できます。cps は出力のサイクル数/秒です。設定上限は、接続先で正常に受け取れる速度の保証値ではありません。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>項目</th>
+      <th>説明</th>
+      <th>範囲・選択肢</th>
+      <th>初期値</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ENABLE</td>
+      <td>軸の使用</td>
+      <td>OFF / ON</td>
+      <td>全軸 OFF</td>
+    </tr>
+    <tr>
+      <td>CH</td>
+      <td>A相・B相の出力ペア</td>
+      <td>8/9、10/11、12/13、14/15</td>
+      <td>ROT0＝10/11、ROT1＝12/13、ROT2＝14/15</td>
+    </tr>
+    <tr>
+      <td>MODE</td>
+      <td>入力方式</td>
+      <td>DIGITAL/ANALOG/JOG/TRACKBALL/WHEEL</td>
+      <td>JOG</td>
+    </tr>
+    <tr>
+      <td>INVERT</td>
+      <td>回転方向を反転</td>
+      <td>OFF / ON</td>
+      <td>OFF</td>
+    </tr>
+    <tr>
+      <td>CW・CCW</td>
+      <td>DIGITAL の時計回り・反時計回り入力</td>
+      <td>ボタン0〜31/ハット4方向</td>
+      <td>WebでDIGITAL選択時：0/1</td>
+    </tr>
+    <tr>
+      <td>速度cps</td>
+      <td>DIGITAL の定速出力</td>
+      <td>1〜65535</td>
+      <td>WebでDIGITAL選択時：60</td>
+    </tr>
+    <tr>
+      <td>AXIS</td>
+      <td>ANALOG の入力軸</td>
+      <td>0〜7</td>
+      <td>LX（0）</td>
+    </tr>
+    <tr>
+      <td>AXIS</td>
+      <td>TRACKBALL の相対入力軸</td>
+      <td>X / Y</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <td>DEADZONE</td>
+      <td>ANALOG の中心付近の不感帯</td>
+      <td>0〜32767</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>MAX CPS</td>
+      <td>ANALOG の最大速度、JOG・TRACKBALL・WHEEL の出力速度上限</td>
+      <td>1〜65535</td>
+      <td>300</td>
+    </tr>
+    <tr>
+      <td>SPEED/スケール</td>
+      <td>JOG の出力サイクル数/ダイヤル1回転</td>
+      <td>1〜65535</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td>SPEED/スケール</td>
+      <td>TRACKBALL・WHEEL の出力サイクル数/入力カウント</td>
+      <td>1〜65535</td>
+      <td>16</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>TRACKBALL は相対 X/Y、WHEEL は相対ホイール入力を使用します。OLED は TRACKBALL を <code class="language-plaintext highlighter-rouge">TRKBALL</code> と表記しています。chペアは他の有効ロータリーエンコーダ軸・通常デジタル出力と重複できません。</p>
+
+<p>ロータリー出力では、ANALOG の縦軸（LY / RY）、TRACKBALL の Y、WHEEL の入力方向をファームウェア側で補正します。INVERT は、その補正後の回転方向を反転する設定です。初期値は OFF で、接続先や好みに合わせて逆向きにする場合に ON にしてください。DIGITAL では INVERT は作用せず、CW / CCW に割り当てた入力で回転方向が決まります。</p>
+
+<h3 id="chapter-6-ジョグコン">ジョグコン</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>項目</th>
+      <th>説明</th>
+      <th>範囲・選択肢</th>
+      <th>初期値</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ENABLE</td>
+      <td>FFB の使用</td>
+      <td>OFF / ON</td>
+      <td>ON</td>
+    </tr>
+    <tr>
+      <td>STRENGTH</td>
+      <td>バネの最大強度</td>
+      <td>1〜15</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>DEADBAND</td>
+      <td>中心付近の遊び</td>
+      <td>0〜RANGE未満、カウント単位</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>RANGE</td>
+      <td>フル舵角。軸値の正規化にも使用</td>
+      <td>16〜32767カウント</td>
+      <td>120</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="chapter-6-vref">VREF</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>項目</th>
+      <th>説明</th>
+      <th>範囲・選択肢</th>
+      <th>初期値</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>VREF</td>
+      <td>アナログ出力のリファレンス電圧を選択</td>
+      <td>AUTO/SYSTEM 5V/EXTERNAL</td>
+      <td>AUTO</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>AUTO の場合、アナログ端子（J5）の外部リファレンス電圧があればそちらを、なければ電源コネクタ（J2）に印加されたシステム電圧を利用します。SYSTEM 5V は電源コネクタ（J2）のシステム電圧、EXTERNAL はアナログ端子（J5）の外部リファレンス電圧を指します。OLED ではそれぞれ <code class="language-plaintext highlighter-rouge">SYS 5V</code>、<code class="language-plaintext highlighter-rouge">EXT</code> と表示しています。</p>
+
+<p>外部リファレンス電圧は、本基板の監視で正常範囲と判定された場合に使用します。現行の判定範囲は4.70〜5.40V、起動時および範囲外から復帰するときの判定範囲は4.80〜5.30Vです（本基板の測定値に基づく判定）。AUTO で範囲外になった場合はシステム電圧へ切り替えます。EXTERNAL ではアナログ出力だけを開放し、正常範囲に戻ると自動復帰します。デジタル出力は継続します。</p>
+
+<h3 id="chapter-6-usb-デバイスモード">USB デバイスモード</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>項目</th>
+      <th>説明</th>
+      <th>範囲・選択肢</th>
+      <th>初期値</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>USB MODE</td>
+      <td>USB-C 単体給電時の動作。全プロファイル共通</td>
+      <td>OFF / XINPUT / HID</td>
+      <td>OFF</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="chapter-6-usb-デバイスモードの割り当て">USB デバイスモードの割り当て</h3>
+
+<p>プロファイルごとに保持する、USB-C へ送るゲームパッド入力用の割り当てです。デジタル出力（J6） / アナログ出力（J5） の出力割り当てとは別に、Web 設定から編集します。表の出力名は XInput 表記で、HID と共用します。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>出力項目</th>
+      <th>入力元の範囲・選択肢</th>
+      <th>初期値</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>A / B / X / Y</td>
+      <td>未設定／ボタン0〜31／ハット4方向</td>
+      <td>ボタン0 / 1 / 2 / 3</td>
+    </tr>
+    <tr>
+      <td>LB / RB</td>
+      <td>同上</td>
+      <td>ボタン4 / 5</td>
+    </tr>
+    <tr>
+      <td>BACK / START / GUIDE</td>
+      <td>同上</td>
+      <td>ボタン8 / 9 / 12</td>
+    </tr>
+    <tr>
+      <td>L3 / R3</td>
+      <td>同上</td>
+      <td>ボタン10 / 11</td>
+    </tr>
+    <tr>
+      <td>十字キー 上 / 下 / 左 / 右</td>
+      <td>同上</td>
+      <td>ハット 上 / 下 / 左 / 右</td>
+    </tr>
+    <tr>
+      <td>LT / RT</td>
+      <td>未設定／軸0〜7</td>
+      <td>軸4 / 5</td>
+    </tr>
+    <tr>
+      <td>左スティック X / Y</td>
+      <td>未設定／軸0〜7</td>
+      <td>軸0 / 1</td>
+    </tr>
+    <tr>
+      <td>右スティック X / Y</td>
+      <td>未設定／軸0〜7</td>
+      <td>軸2 / 3</td>
+    </tr>
+    <tr>
+      <td>軸反転</td>
+      <td>トリガー・スティックごとに設定</td>
+      <td>OFF</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>軸反転の選択肢は OFF / ON です。XInput と HID の上下方向の規格差は本機が処理するため、そのための反転設定は不要です。HID の ZL / ZR は LT / RT の値をしきい値でボタン入力に変換します。</p>
+
+<p>初期割り当てでの顔ボタンの対応は次のとおりです。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>入力機器</th>
+      <th>XInput 出力</th>
+      <th>HID 出力</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Xbox 系</td>
+      <td>A→A、B→B、X→X、Y→Y</td>
+      <td>A→A、B→B、X→X、Y→Y</td>
+    </tr>
+    <tr>
+      <td>PS 系</td>
+      <td>×→A、○→B、□→X、△→Y</td>
+      <td>×→B、○→A、□→Y、△→X</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>USB デバイスモードの割り当ては、J5 / J6 用のトグル・ボタンによるアナログ値の増減・ロータリー変換を経由しません。</p>
+
+<p class="back-to-top"><a href="#top">ページ先頭へ戻る</a></p>
+</section>
+
+
+
+
+
+
+<section class="manual-chapter" aria-labelledby="chapter-7">
+<h2 id="chapter-7">コントローラ</h2>
+<ul id="chapter-7-markdown-toc">
+  <li><a href="#chapter-7-接続確認済み機器" id="chapter-7-markdown-toc-接続確認済み機器">接続確認済み機器</a></li>
+  <li><a href="#chapter-7-ボタン番号" id="chapter-7-markdown-toc-ボタン番号">ボタン番号</a></li>
+  <li><a href="#chapter-7-軸番号" id="chapter-7-markdown-toc-軸番号">軸番号</a></li>
+</ul>
+
+<h3 id="chapter-7-接続確認済み機器">接続確認済み機器</h3>
+
+<p>既存の実機・評価治具での確認記録です。認識の確認と出力機能の確認は区別しています。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>機器</th>
+      <th>接続</th>
+      <th>確認した内容</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>DualShock 系</td>
+      <td>J7</td>
+      <td>PS 通信で認識</td>
+    </tr>
+    <tr>
+      <td>DualShock 2 系</td>
+      <td>J7</td>
+      <td>PS 通信で認識</td>
+    </tr>
+    <tr>
+      <td>ジョグコン</td>
+      <td>J7</td>
+      <td>Web から FFB 設定操作</td>
+    </tr>
+    <tr>
+      <td>ネジコン</td>
+      <td>J7</td>
+      <td>ひねり・アナログボタン・ハット・ボタン認識</td>
+    </tr>
+    <tr>
+      <td>SCPH-1010</td>
+      <td>J7</td>
+      <td>ボタン・ハット認識</td>
+    </tr>
+    <tr>
+      <td>Xbox 360 有線</td>
+      <td>USB</td>
+      <td>XInput 認識</td>
+    </tr>
+    <tr>
+      <td>Xbox 360 無線</td>
+      <td>USB 無線アダプタ経由</td>
+      <td>XInput 認識</td>
+    </tr>
+    <tr>
+      <td>Xbox 360 ワイヤレススピードホイール</td>
+      <td>USB 無線アダプタ経由</td>
+      <td>ステアリング・トリガー・ハット・ボタン認識</td>
+    </tr>
+    <tr>
+      <td>Sony DualShock 3 / SIXAXIS</td>
+      <td>USB</td>
+      <td>HID 認識</td>
+    </tr>
+    <tr>
+      <td>Sony DualShock 4</td>
+      <td>USB</td>
+      <td>認識、従来基板でアナログ4ch出力</td>
+    </tr>
+    <tr>
+      <td>HORI HORIPAD</td>
+      <td>USB</td>
+      <td>HID 認識</td>
+    </tr>
+    <tr>
+      <td>HORI フライトスティック PS4-094</td>
+      <td>USB、PS4モード</td>
+      <td>認識</td>
+    </tr>
+    <tr>
+      <td>Razer 製 PS4 コントローラ（1532:0401）</td>
+      <td>USB</td>
+      <td>HID 認識</td>
+    </tr>
+    <tr>
+      <td>サイバースティック XE1AJ-USB</td>
+      <td>USB</td>
+      <td>スティック・スロットル・ボタン認識</td>
+    </tr>
+    <tr>
+      <td>TAITO EGRET II mini トラックボール／パドル</td>
+      <td>USB</td>
+      <td>ボタン・相対X/Y・ホイール認識</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Microsoft マウス（VID:PID <code class="language-plaintext highlighter-rouge">045E:0823</code>）は、USB 直結でボタン5個・相対 X/Y・ホイールの入力が確認されています。相対軸はロータリーエンコーダ出力の入力元として使用できます。USB ハブはサポート対象外です。</p>
+
+<h3 id="chapter-7-ボタン番号">ボタン番号</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>番号</th>
+      <th>PS系</th>
+      <th>XInput</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>□</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>×</td>
+      <td>B</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>○</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>△</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>L1</td>
+      <td>LB</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>R1</td>
+      <td>RB</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>L2</td>
+      <td>—（LTは軸）</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>R2</td>
+      <td>—（RTは軸）</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>SELECT / Share</td>
+      <td>BACK</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>START / Options</td>
+      <td>START</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>L3</td>
+      <td>L3</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>R3</td>
+      <td>R3</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>PS</td>
+      <td>GUIDE</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>Touchpad（DS4）</td>
+      <td>—</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>汎用 HID は機器の配列によります。MONITOR 画面で番号を確認するか、ASSIGN で実際の入力を取得してください。</p>
+
+<h3 id="chapter-7-軸番号">軸番号</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>番号</th>
+      <th>表示</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>LX（ひねり／舵角）</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>LY</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>RX</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>RY</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>L2 / LT</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>R2 / RT</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Slider</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Dial</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>相対入力の X/Y と絶対軸 LX/LY は別の入力です。</p>
+
+<p class="back-to-top"><a href="#top">ページ先頭へ戻る</a></p>
+</section>
+
+
+
+
+
+
+<section class="manual-chapter" aria-labelledby="chapter-8">
+<h2 id="chapter-8">ファームウェア更新</h2>
+<ul id="chapter-8-markdown-toc">
+  <li><a href="#chapter-8-更新前" id="chapter-8-markdown-toc-更新前">更新前</a></li>
+  <li><a href="#chapter-8-uf2-の書き込み" id="chapter-8-markdown-toc-uf2-の書き込み">UF2 の書き込み</a></li>
+</ul>
+
+<h3 id="chapter-8-更新前">更新前</h3>
+
+<p>INFORMATION 画面にてファームウェア情報を確認してください。設定のバックアップが必要な場合は、Web 設定からファイルへ保存しておいてください。ファームウェア更新によって保存形式が変更となる場合、設定が初期化されることがあります。</p>
+
+<h3 id="chapter-8-uf2-の書き込み">UF2 の書き込み</h3>
+
+<ol>
+  <li>J2 コネクタに接続したシステム電源を外します。</li>
+  <li>BOOT（SW1）を押しながら USB-C から給電するか、USB-C 接続状態で BOOT (SW1) を押しながら RESET（SW2）を押してください。</li>
+  <li>ROM USB ブートのストレージが認識されたら、本ボード向けとして配布されているファームウェアファイル（UF2 ファイル）をコピーしてください。</li>
+  <li>再起動後に INFORMATION 画面のファームウェア情報と設定内容を確認してください。</li>
+</ol>
+
+<p class="back-to-top"><a href="#top">ページ先頭へ戻る</a></p>
+</section>
+
+
+
+
+
+
+<section class="manual-chapter" aria-labelledby="chapter-9">
+<h2 id="chapter-9">困ったときは</h2>
+
+<h3 id="chapter-9-症状別の確認">症状別の確認</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>症状</th>
+      <th>確認・対処</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>入力を認識しない</td>
+      <td>MONITOR → USB/DIGITAL/AXES で認識と入力値を確認してください</td>
+    </tr>
+    <tr>
+      <td>デジタル・アナログが出ない</td>
+      <td>STATE が RUN USB/RUN PS か確認してください。SELF TESTモード/CONFIG モードでは出力されません</td>
+    </tr>
+    <tr>
+      <td>ロータリーエンコーダ出力が OFF</td>
+      <td>対象軸の有効化、RUN 状態、出力ch重複、設定メニューを閉じたか確認してください</td>
+    </tr>
+    <tr>
+      <td>アナログが出ない</td>
+      <td>システム電圧、リファレンス電圧（VREF）、対象chの有効化・入力元を確認してください</td>
+    </tr>
+    <tr>
+      <td>SELECT 起動で ERROR</td>
+      <td>システム電源端子（J2）を外して CONFIG を起動してください</td>
+    </tr>
+    <tr>
+      <td>設定が残らない</td>
+      <td>OLED の SAVE または Web 設定の保存結果を確認してください。Web 設定画面では値を変更しただけでは適用されません。かならず保存操作を行ってください</td>
+    </tr>
+    <tr>
+      <td>ファイルを取り込めない</td>
+      <td>本機の書き出し形式・設定範囲・ch重複などがないか確認してください</td>
+    </tr>
+    <tr>
+      <td>Web 設定が開かない</td>
+      <td>CONFIG 表示と OLED の IP アドレスを確認してください</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="chapter-9-error-赤-led">ERROR 赤 LED</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>表示</th>
+      <th>原因</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>点灯</td>
+      <td>I2C エキスパンダへの通信失敗</td>
+    </tr>
+    <tr>
+      <td>1回点滅</td>
+      <td>USB ホスト過電流</td>
+    </tr>
+    <tr>
+      <td>3回点滅</td>
+      <td>エキスパンダ読み戻し値の不一致</td>
+    </tr>
+    <tr>
+      <td>遅い点滅</td>
+      <td>システム電源端子から電源が供給されている状態で CONFIG 起動を要求した</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>エラーの場合は、上記表の通り点滅と休止を繰り返します。OLED が表示されている場合は CAUSE も確認してください。原因を取り除いて RESETボタン（SW2）を押して再起動してください。</p>
+
+<p>現行版では、リファレンス電圧がない、または正常動作の範囲外の場合、エラーとして扱わずに、アナログ出力のみを開放してデジタル出力は継続します。外部リファレンス電圧設定が AUTO の場合、外部電圧が範囲外になるとシステム電圧へ切り替えます。EXTERNAL の場合、外部電圧が正常範囲に戻ると自動復帰します。</p>
+
+<h3 id="chapter-9-usb-デバイスモードでの確認">USB デバイスモードでの確認</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>症状</th>
+      <th>確認・対処</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PC・ゲーム機がパッドとして認識しない</td>
+      <td>STATE が XINPUT / HID か、接続未確立の <code class="language-plaintext highlighter-rouge">*</code> が点滅していないか確認してください</td>
+    </tr>
+    <tr>
+      <td>USB-A の入力が届かない</td>
+      <td>USB ホスト設定が PIO か確認してください。NATIVE では J7 の入力だけを使用できます</td>
+    </tr>
+    <tr>
+      <td>ゲーム基板へ出力されない</td>
+      <td>USB デバイスモードは J5 / J6 へ出力しません。ゲーム基板向け出力はシステム電源で通常起動してください</td>
+    </tr>
+    <tr>
+      <td>振動しない</td>
+      <td>振動中継は XInput モードの対応機器のみです。J7 は USB-C の供給能力の通知条件も確認してください</td>
+    </tr>
+    <tr>
+      <td>USB ハブ経由で入力できない</td>
+      <td>USB ハブはサポート対象外です。USB-A に直結してください</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="chapter-9-self-testモード">SELF TESTモード</h3>
+
+<p>USB MODE 設定を OFF に保存し、UP / DOWN / SELECT ボタンを押さずに USB-C 接続のみで起動すると SELF TESTモードになります。MONITOR ページでコントローラのボタン・軸・相対値などを確認できます。デジタルならびにアナログの外部出力はすべて開放されるため、ゲーム基板へ信号は出力されません。ご注意ください。</p>
+
+<p>USB-C 接続のときに SELF TESTモードへするには、USB MODE 設定を OFF に保存し、UP / DOWN / SELECT ボタンを押さずに起動してください。保存値が XInput / HID の場合は USB デバイスモードで起動します。</p>
+
+<h3 id="chapter-9-playstation-コントローラのモード切り替え">PlayStation コントローラのモード切り替え</h3>
+
+<p>PlayStation コントローラ端子（J7）に接続した DualShock 2 の ANALOG ボタン、ジョグコンの MODE ボタンは、本基板の接続中にはモードを切り替えません。アナログ／ジョグモードに固定される仕様です。</p>
+
+<p class="back-to-top"><a href="#top">ページ先頭へ戻る</a></p>
+</section>
+
+<footer>Universal Multi I/O · Lost Technology Laboratories</footer>
+</main></div>
+</body>
+</html>
